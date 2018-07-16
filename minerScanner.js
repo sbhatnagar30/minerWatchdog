@@ -2,9 +2,9 @@ const request = require('request');
 const async = require('async')
 const SamarthyaMiner = '65535C0aEf82429F9b8e714f279d3490F2E929B7'
 
-function getData() {
+function getData(address) {
   return new Promise((resolve, reject) => {
-    request(`https://api.ethermine.org/miner/:${SamarthyaMiner}/workers`, function (error, response, body) {
+    request(`https://api.ethermine.org/miner/:${address}/workers`, function (error, response, body) {
       //console.log('error:', error);
       //console.log('statusCode:', response && response.statusCode);
       //console.log('body:', body);
@@ -48,7 +48,7 @@ function restartMiner(miner) {
 }
 
 function test() {
-  var dataPromise = getData();
+  var dataPromise = getData(SamarthyaMiner);
   dataPromise.then((result) => {
     minerPromise = checkMiners(result);
     minerPromise.then((arr) => {
