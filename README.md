@@ -11,7 +11,7 @@ Description=My app
 ExecStart=/var/www/myapp/app.js
 Restart=always
 User=nobody
-# Note RHEL/Fedora uses 'nobody', Debian/Ubuntu uses 'nogroup'
+#Note RHEL/Fedora uses 'nobody', Debian/Ubuntu uses 'nogroup'
 Group=nobody  
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
