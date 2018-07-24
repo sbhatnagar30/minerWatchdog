@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request');
 const async = require('async')
 const SamarthyaMiner = '65535C0aEf82429F9b8e714f279d3490F2E929B7'
@@ -38,6 +40,7 @@ function restartMiner(miner) {
   if (miner === 'miner01') {
     var spawn = require('child_process').spawn,
     restartMiner = spawn('python', 'restartMiner.py');
+    console.log('restarted miner1');
   }
   if (miner === 'miner02') {
     //add restart code here
@@ -63,4 +66,4 @@ function test() {
   });
 }
 
-test();
+setInterval(test, 900000);
